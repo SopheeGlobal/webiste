@@ -152,7 +152,7 @@ footer a{color:#fff}
 
 <section id="contact"><div class="wrap contact">
 <div><h2>Talk to a chartered accountant</h2><p class="lead">Send a few details and we will reply within one working day.</p>
-<dl><dt>Email</dt><dd>sopheeglobal.com</dd><dt>Phone</dt><dd>+91 8143608626</dd><dt>Hours</dt><dd>Monday to Saturday, 10:00 to 18:00 IST</dd></dl></div>
+<dl><dt>Email</dt><dd><a href="mailto:hello@sopheeglobal.com">hello@sopheeglobal.com</a></dd><dt>Phone</dt><dd>+91 8143608626</dd><dt>Hours</dt><dd>Monday to Saturday, 10:00 to 18:00 IST</dd></dl></div>
 <form id="f" novalidate>
 <label for="n" style="margin-top:0">Your name</label><input id="n" required autocomplete="name">
 <label for="e">Email</label><input id="e" type="email" required autocomplete="email">
@@ -180,10 +180,10 @@ var mb=document.querySelector('.menu'),ln=$('links');
 mb.onclick=function(){var o=ln.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
 ln.querySelectorAll('a').forEach(function(a){a.onclick=function(){ln.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
 $('f').onsubmit=function(e){e.preventDefault();var n=$('n').value.trim(),m=$('e').value.trim(),o=$('ok');
-o.style.display='block';
-if(!n||!/^\S+@\S+\.\S+$/.test(m)){o.textContent='Please enter your name and a valid email address.';return}
-o.textContent='Thank you, '+n+'. We have noted your '+$('s').value+' enquiry and will reply to '+m+' within one working day.';
-this.reset()};
+if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){o.style.display='block';o.textContent='Please enter your name and a valid email address.';return}
+var subject='Callback request - '+$('s').value;
+var body='Please call me back.\n\nName: '+n+'\nEmail: '+m+'\nService: '+$('s').value+'\nMessage: '+$('m').value.trim();
+window.location.href='mailto:hello@sopheeglobal.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)};
 $('y').textContent=new Date().getFullYear();
 })();
 </script>
